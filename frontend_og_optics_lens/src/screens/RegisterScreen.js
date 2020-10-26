@@ -15,20 +15,23 @@ const [repassword , setRepassword] =useState('');
 const userRegister = useSelector(state=>state.userRegister);
 const {  loading ,userInfo , error} = userRegister;
 
+const redirect=props.location.search? props.location.search.split("=")[1] : '/';
 
 useEffect(() => {
-   
+   if(userInfo){
+       props.history.push(redirect);
+   }
     
     return () => {
         //
     };
-}, []);
+}, [userInfo]);
 
 
 const dispatch=  useDispatch () ;
 const submitHandler = (e)=> {e.preventDefault() ;
 dispatch(register(name , email , password ));
-props.history.push("/registerCompleted");
+// props.history.push("/registerCompleted");
 }
 
 
@@ -76,7 +79,7 @@ return <div className='container'>
     </li>
 
     <li>
-        <Link to='/signin'>
+  <Link to={redirect==='/' ? "signin" : "signin?redirect=" +redirect}>
            כבר רשום ? 
         </Link>
         

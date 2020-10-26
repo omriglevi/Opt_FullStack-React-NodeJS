@@ -1,5 +1,5 @@
 import Axios from 'axios'  ;
-import {CART_ADD_ITEM , ITEM_QTY_MINUS_ONE , ITEM_QTY_PLUS_ONE , CART_REMOVE_ITEM} from '../constants/cartConstants'
+import { CART_SAVE_SHIPPING,CART_ADD_ITEM , ITEM_QTY_MINUS_ONE , ITEM_QTY_PLUS_ONE , CART_REMOVE_ITEM} from '../constants/cartConstants'
 import Cookies from 'js-cookie' ;
 const addToCart = (productId , qty , leftEyeParameter , rightEyeParameter) => async (dispatch , getState) => {
 
@@ -47,4 +47,8 @@ const{cart: {cartItems}}=getState();
 Cookies.set("cartItems" , JSON.stringify(cartItems))
 } ; 
 
-  export {addToCart  , removeFromCart ,itemQtyMinusOne , itemQtyPlusOne}
+
+const saveShipping = data=>(dispatch)=>{
+    dispatch({type:CART_SAVE_SHIPPING,  payload:data})
+}
+  export {addToCart  , removeFromCart ,itemQtyMinusOne , itemQtyPlusOne , saveShipping}

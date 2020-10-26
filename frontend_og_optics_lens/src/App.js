@@ -14,6 +14,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import ProductsScreen from './screens/productsScreen';
 
 import RegisterCompletedScreen from './screens/RegisterCompletedScreen'
+import ShippingScreen from './screens/ShippingScreen';
 
 
 
@@ -109,6 +110,8 @@ const {userInfo} = userSignin;
             <Route path= '/signin' component={SigninScreen} />
             <Route path = "/cart/:id?"  component={CartScreen}       />
             <Route path ='/register' component={RegisterScreen} />
+            <Route path='/shipping' component={ShippingScreen} />
+           
             <Route path='/registerCompleted'  component={RegisterCompletedScreen}/>
               
         </div>

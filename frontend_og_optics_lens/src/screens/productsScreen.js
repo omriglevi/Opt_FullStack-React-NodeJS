@@ -133,9 +133,7 @@ return <div className='container'>
     <li>
 <input required value={category} dir='ltr'  id= 'category' name='category' placeholder='קטגוריה' onChange={e=>setCategory(e.target.value)} type='text'/> 
     </li>
-    <li>
-<textarea required value={description} dir='ltr'  id= 'description' name='description' placeholder='תיאור' onChange={e=>setDescription(e.target.value)} type='text'/> 
-    </li>
+   
     <li>
 <input value={subCategory} dir='ltr'  id= 'subCategory' name='subCategory' placeholder='תת-קטגוריה' onChange={e=>setsubCategory(e.target.value)} type='text'/> 
     </li>

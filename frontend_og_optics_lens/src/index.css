@@ -361,3 +361,32 @@ font-size: 130%;}
 .mycard button{
     margin-bottom: 1.5rem;
 }
+
+
+/** checkout **/
+checkout-steps{
+    display: flex;
+    justify-content: space-between;
+    width: 40rem;
+    margin: 1rem auto;
+
+}
+
+.checkout-steps > div{
+    padding: .5rem;
+    border-top:.3rem hsl(0, 0%, 75%) solid;
+    display: inline;
+    
+}
+
+
+.checkout-steps > div.active{
+    border-top:.3rem blue solid  ;
+    
+}
+
+.invalidFieldsShippingForm{ 
+    color: red;
+    font-size: smaller;
+
+}

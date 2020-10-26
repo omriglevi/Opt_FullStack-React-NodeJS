@@ -13,15 +13,17 @@ const [email , setEmail] =useState('');
 const [password , setPassword] =useState('');
 const userSignin = useSelector(state=>state.userSignin);
 const {loading , userInfo , error} = userSignin;
-
 const dispatch=  useDispatch () ;
+const redirect=props.location.search? props.location.search.split("=")[1] : '/';
+// console.log( "redirect : "+redirect)
+
 const submitHandler = (e)=> {e.preventDefault() ;
 dispatch(signin(email,password));
 }
 
 useEffect(() => {
     if(userInfo) {
-        props.history.push("/");
+        props.history.push(redirect)
     }
     
     return () => {
@@ -57,7 +59,7 @@ return <div className='container'>
         <button  type='submit' className=' signinbtn btn btn-primary'>כניסה</button>
     </li>
    
-    <li> <Link to='/register'>
+    <li> <Link to={redirect==='/' ? "register" : "register?redirect=" +redirect}>
        רוצה להרשם?
         </Link></li>
 </ul>

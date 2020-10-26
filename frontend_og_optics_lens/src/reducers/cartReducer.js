@@ -1,5 +1,5 @@
 
-import {CART_ADD_ITEM , ITEM_QTY_MINUS_ONE , ITEM_QTY_PLUS_ONE , CART_REMOVE_ITEM} from '../constants/cartConstants';
+import {CART_ADD_ITEM , ITEM_QTY_MINUS_ONE , ITEM_QTY_PLUS_ONE , CART_REMOVE_ITEM, CART_SAVE_SHIPPING} from '../constants/cartConstants';
 
 
 
@@ -8,6 +8,13 @@ function cartReducer (state={cartItems:[] } , action   )
     const flag =false ;
     switch (action.type) 
      {
+
+case CART_SAVE_SHIPPING:
+    return{...state , shipping:action.payload}
+
+
+
+
     case CART_ADD_ITEM :
         const item = action.payload ;
         const flag=false;
