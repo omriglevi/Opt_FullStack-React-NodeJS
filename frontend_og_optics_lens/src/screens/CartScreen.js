@@ -2,7 +2,7 @@
 import React, { useEffect} from 'react'
 import {useDispatch , useSelector} from 'react-redux'
 import { addToCart , removeFromCart , itemQtyMinusOne , itemQtyPlusOne } from '../action/cartActions';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import {Cookies} from 'js-cookie'
 
 
@@ -21,9 +21,9 @@ function CartScreen (props)
     const productId = props.match.params.id ;
     const myStr=props.location.search;
             const myStr_sections=myStr.split("?") ;
-            const qty =Number(myStr_sections[1].split("=")[1]) ; 
-            const leftE=Number(myStr_sections[2].split("=")[1]);   
-            const rightE=Number(myStr_sections[3].split("=")[1]);  
+            const qty =props.location.search ?     Number(myStr_sections[1].split("=")[1]) : 1 ; 
+            const leftE=props.location.search ? Number(myStr_sections[2].split("=")[1]) :1.25;   
+            const rightE=props.location.search ? Number(myStr_sections[3].split("=")[1]) :1.25;  
 
            const  itemQtyMinusOneHandler = product=> {dispatch(itemQtyMinusOne(product)) };
            const  itemQtyPlusOneHandler =  product => {dispatch(itemQtyPlusOne(product))};

@@ -1,6 +1,6 @@
-import { removeFromCart } from '../action/cartActions';
+
 import {CART_ADD_ITEM , ITEM_QTY_MINUS_ONE , ITEM_QTY_PLUS_ONE , CART_REMOVE_ITEM} from '../constants/cartConstants';
-import Cookies from 'js-cookie'
+
 
 
 function cartReducer (state={cartItems:[] } , action   )

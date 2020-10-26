@@ -11,6 +11,9 @@ import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
 import { useSelector } from 'react-redux';
 import RegisterScreen from './screens/RegisterScreen';
+import ProductsScreen from './screens/productsScreen';
+
+import RegisterCompletedScreen from './screens/RegisterCompletedScreen'
 
 
 
@@ -45,11 +48,13 @@ const {userInfo} = userSignin;
         </div>
         <div className ="header-links">
     
-            <a dir="rtl" href="cart.html">
+
+            <Link to='/cart'>
+            <a dir="rtl" >
                 <i className="material-icons small shopping_basket" ></i>
                 🛒
                 סל הקניות </a>
-              
+              </Link>
 
             {
                 !userInfo? <Link to='/signin'>
@@ -98,11 +103,13 @@ const {userInfo} = userSignin;
     
     <main className="main">
         <div className="content">
-         <Route path="/product/:id"  component={ProductScreen}                />
+         <Route path="/products/:id"  component={ProductScreen}                />
+            <Route path='/products' component={ProductsScreen} />
             <Route path="/"   exact={true} component={HomeScreen}              />
             <Route path= '/signin' component={SigninScreen} />
             <Route path = "/cart/:id?"  component={CartScreen}       />
             <Route path ='/register' component={RegisterScreen} />
+            <Route path='/registerCompleted'  component={RegisterCompletedScreen}/>
               
         </div>
     

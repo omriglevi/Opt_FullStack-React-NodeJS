@@ -1,0 +1,2 @@
+go to productscreen and change the add to cart handler , 
+use the states u created and send the detailes to add to cart , dont forget to dispach add to cart

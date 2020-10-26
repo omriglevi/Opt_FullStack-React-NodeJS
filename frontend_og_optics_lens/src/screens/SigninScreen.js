@@ -57,7 +57,7 @@ return <div className='container'>
         <button  type='submit' className=' signinbtn btn btn-primary'>כניסה</button>
     </li>
    
-    <li> <Link to='api/register'>
+    <li> <Link to='/register'>
        רוצה להרשם?
         </Link></li>
 </ul>

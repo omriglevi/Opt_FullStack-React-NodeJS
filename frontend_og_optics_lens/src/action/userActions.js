@@ -19,11 +19,11 @@ import {USER_SIGNIN_FAILED , USER_SIGNIN_REQUEST , USER_SIGNIN_SUCCESS ,USER_REG
 
 
  const register = (name ,email,password)=>async dispatch=>{
-    dispatch({ type: USER_REGISTER_REQUEST , payload:{name, email,password }});
+    dispatch({ type: USER_REGISTER_REQUEST, payload:{name, email,password }});
     try {
         const {data}= await Axios.post("/api/users/register" , {name, email , password});
         dispatch({type:USER_REGISTER_SUCCESS , payload:data});
-        Cookies.set('userRegister' , JSON.stringify(data));
+        Cookies.set('userInfo' , JSON.stringify(data));
     }
     catch(error){
        dispatch({type:USER_REGISTER_FAILED , payload:error.message});

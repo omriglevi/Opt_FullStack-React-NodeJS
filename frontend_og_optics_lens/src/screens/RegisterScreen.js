@@ -2,7 +2,7 @@ import React , {useState} from 'react' ;
 import {useSelector , useDispatch} from 'react-redux';
 import {useEffect} from 'react' ;
 import {Link} from 'react-router-dom';
-import { register } from '../action/userActions';
+import { register, signin } from '../action/userActions';
 
 
 
@@ -15,21 +15,24 @@ const [repassword , setRepassword] =useState('');
 const userRegister = useSelector(state=>state.userRegister);
 const {  loading ,userInfo , error} = userRegister;
 
-const dispatch=  useDispatch () ;
-const submitHandler = (e)=> {e.preventDefault() ;
-dispatch(register(name , email,password));
-}
-
 
 useEffect(() => {
-    if(userInfo) {
-        props.history.push("/");
-    }
+   
     
     return () => {
         //
     };
 }, []);
+
+
+const dispatch=  useDispatch () ;
+const submitHandler = (e)=> {e.preventDefault() ;
+dispatch(register(name , email , password ));
+props.history.push("/registerCompleted");
+}
+
+
+
 
 return <div className='container'>
     <div>
@@ -63,13 +66,13 @@ return <div className='container'>
 <input dir='ltr'  id= 'repassword' name='repassword' placeholder='אימות סיסמא' onChange={e=>setRepassword(e.target.value)} type='password'/> 
     </li>
 
-    {password != repassword &&  
+    {password !== repassword &&  
     <li>
         הסיסמאות לא זהות
     </li>}
 
     <li>
-        <button  type='submit' disabled={password !=repassword} className=' signinbtn btn btn-primary'> יאללה , סיימתי</button>
+        <button  type='submit' disabled={password !==repassword} className=' signinbtn btn btn-primary'> יאללה , סיימתי</button>
     </li>
 
     <li>
