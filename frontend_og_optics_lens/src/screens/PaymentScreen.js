@@ -44,24 +44,18 @@ return <div className='container'>
 <div className=''>
        <CheckoutSteps step1 step2 step3></CheckoutSteps>
     </div>
-   <li>  <h3 dir='rtl'>פרטי תשלום</h3>
-   </li>
-   <li className='invalidFieldsShippingForm'  dir='rtl'>
-      {!city && 'לא הזנת עיר'}
-   </li>
-
-   <li className='invalidFieldsShippingForm'>
-   {!floor && 'לא הזנת קומה'}
-   </li>
-
-   <li className='invalidFieldsShippingForm'> 
-   {!streetAndBuilding && 'לא הזנת כתובת'}
+   <li>  <h3 dir='rtl'>פרטי תשלום </h3>
    </li>
   
 
+
+  
+
    <li>
-       <input type='radio'  id='pay' value='paypal' name='paymentMethod' placeholder='paymentMethod' onChange={e=>setPaymentMethod(e.target.value)} />
-        <label htmlFor='paymentMethod'> Paypal</label>
+       <div>
+   <label  dir='ltr' htmlFor='paymentMethod'> Paypal</label>
+       <input className='paymentBox' type='radio'  id='paymentBoxRadioPaypal' value='paypal' name='paymentMethod'  onChange={e=>setPaymentMethod(e.target.value)} />
+       </div>
     </li>
 
 

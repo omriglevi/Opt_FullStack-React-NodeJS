@@ -27,7 +27,7 @@ const dispatch=  useDispatch () ;
 const submitHandler = (e)=> {
    console.log("clicked");
    e.preventDefault() ;
-dispatch(saveShipping(city , streetAndBuilding , floor ,apartmentNumber , postalCode, extraShippingInfo));
+dispatch(saveShipping({city , streetAndBuilding , floor ,apartmentNumber , postalCode, extraShippingInfo}));
  props.history.push("payment");
 }
 

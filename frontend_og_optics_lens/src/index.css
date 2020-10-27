@@ -390,3 +390,21 @@ checkout-steps{
     font-size: smaller;
 
 }
+
+
+/**Payment **/ 
+#paymentBoxRadioPaypal {
+    margin-right: 1rem;
+    
+    
+}
+
+.display_cart {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+.rowOfTotal{
+    margin-bottom: 1rem;
+}

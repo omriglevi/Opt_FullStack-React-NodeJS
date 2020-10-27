@@ -7,9 +7,9 @@ import { userRegisterReducer, userSigninReducer } from './reducers/userReducer';
 
 const cartItems= Cookies.getJSON("cartItems") || [] ;
 const userInfo= Cookies.getJSON("userInfo") || null ;
+const shipping= Cookies.getJSON("shipping") || [] ;
 
-
-const initialState={cart : {cartItems}   , userSignin: {userInfo}  };
+const initialState={cart : {cartItems , shipping }   , userSignin: {userInfo}  };
 
 
 
