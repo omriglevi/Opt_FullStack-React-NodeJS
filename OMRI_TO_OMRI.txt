@@ -29,7 +29,4 @@ Else
 I will send an error and redirect user to PaymentScreen
 _________________________________________________________________________________________
 
-Things to improve:
-Design.
-Encrypt and hash password from server to DB using bcrypt package.
-_________________________________________________________________________________________
+
