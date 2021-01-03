@@ -67,8 +67,8 @@ router.put("/:id" , async (req , res)=>{
     const productId=req.params.id ; 
     
 
-    const product=await Product.findById({productId});
-    if(!product){return res.send({msg:'didnt find product with id - '+productId , } )}
+    const product=await Product.findById(req.params.id);
+  
     if(product){
         product.name= req.body.name   ;
         product.image = req.body.image ;

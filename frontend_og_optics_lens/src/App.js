@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {BrowserRouter,Route,Link} from 'react-router-dom';
 import './App.css';
@@ -13,17 +13,25 @@ import { useSelector } from 'react-redux';
 import RegisterScreen from './screens/RegisterScreen';
 import ProductsScreen from './screens/productsScreen';
 
-import RegisterCompletedScreen from './screens/RegisterCompletedScreen'
 import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ChangeDetailsScreen from './screens/ChangeDetailsScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import AdminScreen from './screens/AdminScreen';
+import {logOutUser} from './action/userActions';
 
 
 
 function App() {
+    const[isErrorUser , setIsErrorUser]=useState(false);
+     
 const userSignin =useSelector(state=>state.userSignin);
-const {userInfo} = userSignin;
-    
+const {userInfo , error , loading} = userSignin;
+
+
+    const logOut=()=>logOutUser();
+
   const openMenu = () => {
     document.querySelector(".sidebar").classList.add("openNav");
     console.log("Menu open");
@@ -39,7 +47,7 @@ const {userInfo} = userSignin;
 <BrowserRouter> 
 
 <div className="grid-container">
-    
+    {error&&logOut()}
 
     <header className="header"> 
         <div className="brand">
@@ -60,14 +68,16 @@ const {userInfo} = userSignin;
               </Link>
 
             {
-                !userInfo? <Link to='/signin'>
+
+ (    (!userInfo) || (Object.keys(userInfo).length === 0) )?
+                 <Link to='/signin'>
                
                 👤 התחבר
                     
                     
                     </Link> 
                     :
-                    <Link to='/profile'>
+                    <Link to={userInfo.isAdmin?'/adminProfile':'/profile'}>
                       
                             {userInfo.name} 👤
                       
@@ -108,14 +118,19 @@ const {userInfo} = userSignin;
         <div className="content">
             <Route path="/payment" component={PaymentScreen}/>
          <Route path="/products/:id"  component={ProductScreen}                />
-            <Route path='/products' component={ProductsScreen} />
+            <Route path='/products/manage' component={ProductsScreen} />
             <Route path="/"   exact={true} component={HomeScreen}              />
             <Route path= '/signin' component={SigninScreen} />
             <Route path = "/cart/:id?"  component={CartScreen}       />
             <Route path ='/register' component={RegisterScreen} />
             <Route path='/shipping' component={ShippingScreen} />
            <Route path='/placeorder' component={PlaceOrderScreen} />
-            <Route path='/registerCompleted'  component={RegisterCompletedScreen}/>
+           <Route path='/profile' component={ProfileScreen}/>
+           <Route path='/changeDetails' component={ChangeDetailsScreen}/>
+           <Route path='/adminProfile' component={AdminScreen}/>
+
+           
+        
               
         </div>
     

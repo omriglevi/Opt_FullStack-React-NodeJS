@@ -1,0 +1,35 @@
+NOTES AND COMMENTS TO MYSELF
+----------------------------
+
+
+Main Tools:
+Node
+Express
+MongoDB
+Bootstrap
+JWT auth
+
+packages:
+Cookies 
+Nodemon
+Body-parser
+
+_________________________________________________________________________________________
+To do :
+Since I do not have a business bank account I couldn't connect PayPal to a real account .
+If this app will eventually be used I will have to : 
+
+I will send the user to Paypal API and await (don't forget the async)  for a response,
+In case the request to Paypal Payment API succeed I will :  
+
+1.Create an Order Scheme and send the Order JSON to my mongoDB.
+2.set a Route on the backend to get Order lists of this specific user. I will have to accept the user ID and send it back to the server to get this specific user's order lists
+
+Else
+I will send an error and redirect user to PaymentScreen
+_________________________________________________________________________________________
+
+Things to improve:
+Design.
+Encrypt and hash password from server to DB using bcrypt package.
+_________________________________________________________________________________________

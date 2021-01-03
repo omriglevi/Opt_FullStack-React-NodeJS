@@ -7,7 +7,7 @@ category:'lens',
 brand:'acuve',
 price:90,
 size:'0.5',
-_id:'1',
+// _id:'1',
 image:'/images/1-day-acuvue-moist_3_2.jpg' , 
 countInStock : 0
 },
@@ -18,7 +18,7 @@ category:'lens',
 brand:'acuve',
 price:90,
 size:'0.5',
-_id:'2',
+// _id:'2',
 image:'/images/1-day-acuvue-moist_3_2.jpg' , 
 countInStock : 55
 },
@@ -30,7 +30,7 @@ countInStock : 55
     brand:'acuve',
     price:90,
     size:'0.5',
-    _id:'3',
+    // _id:'3',
     image:'/images/1-day-acuvue-moist_3_2.jpg' ,
     countInStock : 55
     },
@@ -41,7 +41,7 @@ countInStock : 55
     brand:'acuve',
     price:90,
     size:'0.5',
-    _id:'4',
+    // _id:'4',
     image:'/images/1-day-acuvue-moist_3_2.jpg' ,
     countInStock : 55
     }

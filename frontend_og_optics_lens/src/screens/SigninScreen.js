@@ -22,7 +22,7 @@ dispatch(signin(email,password));
 }
 
 useEffect(() => {
-    if(userInfo) {
+    if(  (!userInfo)|| (Object.keys(userInfo).length !== 0)) {
         props.history.push(redirect)
     }
     

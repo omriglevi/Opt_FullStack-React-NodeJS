@@ -8,15 +8,19 @@ import CheckoutSteps from '../Components/CheckoutSteps'
 
 
 function ShippingScreen(props){
- const [city , setCity] =useState('');
-const [streetAndBuilding , setStreetAndBuilding] =useState('');
-const [floor , setFloor] =useState('');
-const [apartmentNumber , setApartmentNumber] =useState('');
+  
+   const userSignin = useSelector(state=>state.userSignin);
+   const {  loading ,userInfo , error} = userSignin;
+
+ 
+const [streetAndBuilding , setStreetAndBuilding] =useState(    (!userInfo.adress)|| (Object.keys(userInfo.adress).length === 0)  ? '' : userInfo.adress  )
+const [floor , setFloor] =useState( (!userInfo.floor)|| (Object.keys(userInfo.floor).length === 0)  ? '' : userInfo.floor ) ;
+const [apartmentNumber , setApartmentNumber] =useState( (!userInfo.aptNum)|| (Object.keys(userInfo.aptNum).length === 0)  ? '' : userInfo.aptNum );
 const [postalCode , setPostalCode] =useState('');
 const [extraShippingInfo , setExtraShippingInfo] =useState('');
+const [city , setCity] =useState( (!userInfo.city)|| (Object.keys(userInfo.city).length === 0)  ? '' : userInfo.city );
 
-const userRegister = useSelector(state=>state.userRegister);
-const {  loading ,userInfo , error} = userRegister;
+
 
 const redirect=props.location.search? props.location.search.split("=")[1] : '/';
 
@@ -31,7 +35,18 @@ dispatch(saveShipping({city , streetAndBuilding , floor ,apartmentNumber , posta
  props.history.push("payment");
 }
 
-
+// if(userInfo)
+// {
+//    if(userInfo.adress)
+//    {
+//       setStreetAndBuilding(userInfo.adress);
+//    }
+//    if(userInfo.floor)
+//    {
+//       setFloor(userInfo.floor);
+//    }
+ 
+// }
 
 
 return <div className='container'>
@@ -64,34 +79,36 @@ return <div className='container'>
   
 
    <li>
-       <input type='text' dir='ltr' id='city' name='city' placeholder='עיר' onChange={e=>setCity(e.target.value)} />
+       <input value={city } type='text' dir='ltr' id='city' name='city' placeholder='עיר' onChange={e=>setCity(e.target.value)}  type='text'/>
         
     </li>
 
 
     <li>
-       <input  dir='ltr' id='streetAndBuilding' name='streetAndBuilding' placeholder='רחוב ומספר בית' onChange={e=>setStreetAndBuilding(e.target.value)} type='text'/>
+       <input value={streetAndBuilding } dir='ltr' id='streetAndBuilding' name='streetAndBuilding' placeholder='רחוב ומספר בית' onChange={e=>setStreetAndBuilding(e.target.value)} type='text'>
+         
+       </input>
         
     </li>
 
     <li>
-       <input type='text' dir='ltr' id='floor' name='floor' placeholder='קומהֿֿֿ או בית פרטי' onChange={e=>setFloor(e.target.value)}/>
+       <input value={floor} type='text' dir='ltr' id='floor' name='floor' placeholder='קומהֿֿֿ או בית פרטי' onChange={e=>setFloor(e.target.value)} type='text'/>
         
     </li>
 
     <li>
-       <input type='text' dir='ltr' id='apartmentNumber' name='apartmentNumber' placeholder='מספר דירה' required={false} onChange={e=>setApartmentNumber(e.target.value)} />
+       <input value={apartmentNumber } type='text' dir='ltr' id='apartmentNumber' name='apartmentNumber' placeholder='מספר דירה' required={false} onChange={e=>setApartmentNumber(e.target.value)} type='text' />
         
     </li>
 
     <li>
-       <input type='text' dir='ltr' id='postalCode' name='postalCode' placeholder='מיקוד' onChange={e=>setPostalCode(e.target.value)} />
+       <input type='text' dir='ltr' id='postalCode' name='postalCode' placeholder='מיקוד' onChange={e=>setPostalCode(e.target.value)} type='text' />
         
     </li>
 
     <li>
 
-    <textarea type='text' dir='ltr' id='extraShippingInfo' name='extraShippingInfo' placeholder='מידע נוסף / הערות' onChange={e=>setExtraShippingInfo(e.target.value)} />
+    <textarea type='text' dir='ltr' id='extraShippingInfo' name='extraShippingInfo' placeholder='מידע נוסף / הערות' onChange={e=>setExtraShippingInfo(e.target.value)} type='text' />
         
     
     </li>

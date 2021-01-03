@@ -42,6 +42,7 @@ function CartScreen (props)
                 props.history.push("/signin?redirect=shipping");
              }
             return <div className="container">
+                
 <div className="row display_cart">
                 {cartItems.length ===0?<div className ="col">    הסל ריק </div> : 
                 

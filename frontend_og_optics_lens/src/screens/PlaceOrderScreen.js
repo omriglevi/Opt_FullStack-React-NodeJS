@@ -51,7 +51,7 @@ if(!payment)
                     <div className="row  rowOfTotal "> <span id="subtotal">    סיכום הזמנה 🤩</span> </div>
                          
                            <div className="col">
-                          shipping:{shipping.floor}
+                       
                           payment:{payment}
                 {cartItems.length ===0?<div className ="col">    הסל ריק </div> : 
                 

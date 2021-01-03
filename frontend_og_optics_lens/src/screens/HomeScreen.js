@@ -12,7 +12,7 @@ import { listProducts } from '../action/productActions';
 function HomeScreen(props){
 
     
-    const productList=useSelector(state=>state.productList);
+    const productList=useSelector( state=>state.productList);
     const {products , loading , error} =productList;
     const dispatch = useDispatch();
 
@@ -28,6 +28,7 @@ function HomeScreen(props){
     return loading? <div> Loading...</div> :
     error? <div> {error} </div> :
      <ul className="products">
+        
     {
         products.map(product=>
         
@@ -75,11 +76,13 @@ function HomeScreen(props){
         </div>
 
             <div>
+            <Link to={"/products/"+product._id}> 
                 <button className="home-screen-addToBasket-btn">
                     +
-                    הוסף לסל
+                    מידע נוסף
                     
                 </button>
+                </Link>
             </div>
 
         </div>

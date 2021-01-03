@@ -143,6 +143,10 @@ return <div className='container'>
     </li>
 
     <li>
+<textarea required value={description}  dir='ltr'  id= 'prod_store_id' name='prod_store_id' placeholder='מקט' onChange={e=>setDescription(e.target.value)} type='text'/> 
+    </li>
+
+    <li>
         <button value='submit'  type='submit' className=' signinbtn btn btn-primary'> { (name || prod_store_id) ?"ערוך" : "הוסף"}</button>
     </li>
    
